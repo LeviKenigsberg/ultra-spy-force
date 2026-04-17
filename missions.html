@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Incoming Missions</title>
+
+  <style>
+    body {
+      background: black;
+      color: lime;
+      font-family: monospace;
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      background: lime;
+      color: black;
+      cursor: pointer;
+    }
+
+    #mission {
+      margin-top: 30px;
+      font-size: 22px;
+      min-height: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>INCOMING MISSIONS</h1>
+
+  <button onclick="generateMission()">Generate Mission</button>
+
+  <div id="mission"></div>
+
+  <button onclick="location.href='dashboard.html'">
+    Back to Mission Control
+  </button>
+
+  <script>
+    function generateMission() {
+      const missions = [
+        "Infiltrate the enemy base",
+        "Decode intercepted message",
+        "Track a rogue agent",
+        "Recover stolen data",
+        "Hack into secure server",
+        "Deliver secret package",
+        "Escape undetected",
+        "Surveillance on target",
+        "Disable security system",
+        "Extract undercover agent"
+      ];
+
+      const random =
+        missions[Math.floor(Math.random() * missions.length)];
+
+      document.getElementById("mission").textContent = random;
+    }
+  </script>
+
+</body>
+</html>
+

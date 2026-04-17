@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mission Control</title>
+
+  <style>
+    body {
+      background: black;
+      color: lime;
+      font-family: monospace;
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    button {
+      display: block;
+      margin: 10px auto;
+      padding: 12px 22px;
+      background: lime;
+      color: black;
+      cursor: pointer;
+      width: 220px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>MISSION CONTROL</h1>
+  <p id="welcomeText">Welcome, Agent</p>
+
+  <button onclick="location.href='missions.html'">
+    Incoming Missions
+  </button>
+
+  <button onclick="location.href='files.html'">
+    Top Secret Files
+  </button>
+
+  <button onclick="location.href='decoder.html'">
+    Message Decoder
+  </button>
+
+  <button onclick="location.href='training.html'">
+    Agent Training
+  </button>
+
+  <button id="logoutBtn">
+    LOG OUT
+  </button>
+
+  <script type="module">
+    import { auth } from "./firebase-config.js";
+    import {
+      onAuthStateChanged,
+      signOut
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    const welcomeText = document.getElementById("welcomeText");
+    const logoutBtn = document.getElementById("logoutBtn");
+
+    onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        window.location.href = "index.html";
+      } else {
+        welcomeText.textContent = "Welcome, Agent " + user.email;
+      }
+    });
+
+    logoutBtn.onclick = async () => {
+      await signOut(auth);
+      window.location.href = "index.html";
+    };
+  </script>
+
+</body>
+</html>
+

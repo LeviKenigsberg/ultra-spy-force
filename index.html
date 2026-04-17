@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Agent Login</title>
+
+  <style>
+    body {
+      background: black;
+      color: lime;
+      font-family: monospace;
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    input {
+      display: block;
+      margin: 10px auto;
+      padding: 10px;
+      background: black;
+      border: 1px solid lime;
+      color: lime;
+    }
+
+    button {
+      background: lime;
+      color: black;
+      padding: 10px 20px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>AGENT LOGIN</h1>
+  <p>Identify Yourself</p>
+
+  <input type="email" id="email" placeholder="Agent Email">
+  <input type="password" id="password" placeholder="Password">
+
+  <button id="loginBtn">ACCESS SYSTEM</button>
+
+  <p id="status"></p>
+
+  <!-- THIS is the important part -->
+  <script type="module" src="auth.js"></script>
+
+</body>
+</html>
+

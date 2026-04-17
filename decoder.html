@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Message Decoder</title>
+
+  <style>
+    body {
+      background: black;
+      color: lime;
+      font-family: monospace;
+      text-align: center;
+      margin-top: 80px;
+    }
+
+    input, textarea {
+      display: block;
+      margin: 10px auto;
+      padding: 10px;
+      background: black;
+      border: 1px solid lime;
+      color: lime;
+      width: 320px;
+    }
+
+    button {
+      margin: 8px;
+      padding: 10px 20px;
+      background: lime;
+      color: black;
+      cursor: pointer;
+    }
+
+    #outputText {
+      height: 100px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>MESSAGE DECODER</h1>
+
+  <textarea id="inputText" placeholder="Enter secret message"></textarea>
+
+  <button onclick="encode()">Encode</button>
+  <button onclick="decode()">Decode</button>
+
+  <textarea id="outputText" placeholder="Result"></textarea>
+
+  <button onclick="location.href='dashboard.html'">
+    Back to Mission Control
+  </button>
+
+  <script>
+    function encode() {
+      let text = document.getElementById("inputText").value;
+      document.getElementById("outputText").value = btoa(text);
+    }
+
+    function decode() {
+      let text = document.getElementById("inputText").value;
+
+      try {
+        document.getElementById("outputText").value = atob(text);
+      } catch {
+        document.getElementById("outputText").value = "Invalid Code";
+      }
+    }
+  </script>
+
+</body>
+</html>
+
